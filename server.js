@@ -7,7 +7,7 @@ var app = express();
 // Bind base URL to a notification that the microservice needs to have a parameter.
 app.get("/", function(req, res) {
   // convert IP to IPv4
-  var ip = req.ip;
+  var ip = req.connection.remoteAddress;
   if (ip.lastIndexOf(':') >= 0) {
     ip = ip.slice(ip.lastIndexOf(':') + 1);
   }
